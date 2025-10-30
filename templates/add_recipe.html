@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新增食譜</title>
+</head>
+<body>
+    <h1>新增食譜</h1>
+
+    <form method="POST">
+        <label for="title">料理名稱：</label>
+        <input type="text" id="title" name="title" required><br>
+
+        <label for="sharer">分享者：</label>
+        <input type="text" id="sharer" name="sharer" required><br>
+
+        <label for="content">食譜內容：</label>
+        <textarea id="content" name="content" required></textarea><br>
+
+        <button type="submit">提交</button>
+    </form>
+
+    <br>
+    <a href="{{ url_for('index') }}">返回食譜列表</a>
+</body>
+</html>

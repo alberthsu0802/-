@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>食譜分享平台</title>
+</head>
+<body>
+    <h1>食譜分享平台</h1>
+
+    <a href="{{ url_for('add_recipe') }}">新增食譜</a>
+
+    <h2>所有食譜：</h2>
+    <ul>
+        {% for recipe in recipes %}
+        <li>
+            <h3>{{ recipe.title }}</h3>
+            <p><strong>分享者：</strong>{{ recipe.sharer }}</p>
+            <p><strong>食譜內容：</strong>{{ recipe.content }}</p>
+            <a href="{{ url_for('edit_recipe', recipe_id=loop.index0) }}">編輯</a> |
+            <a href="{{ url_for('delete_recipe', recipe_id=loop.index0) }}" onclick="return confirm('確定要刪除這個食譜嗎？')">刪除</a>
+        </li>
+        {% else %}
+        <p>目前沒有食譜，快來新增吧！</p>
+        {% endfor %}
+    </ul>
+</body>
+</html>
